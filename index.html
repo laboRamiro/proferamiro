@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profe Ramiro</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#1e40af" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Profe Ramiro" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0f172a;
+      color: #f1f5f9;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e40af, #7c3aed);
+      padding: 2rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      color: #bfdbfe;
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+      margin-bottom: 1rem;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .game-card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      color: #f1f5f9;
+      transition: transform 0.15s, background 0.15s;
+      border: 1px solid #334155;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .game-card:hover {
+      transform: translateY(-4px);
+      background: #273549;
+      border-color: #60a5fa;
+    }
+
+    .game-card .emoji {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+
+    .game-card .name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .game-card .desc {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-new { background: #16a34a; color: #fff; }
+    .badge-pronto { background: #475569; color: #cbd5e1; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #475569;
+      font-size: 0.8rem;
+    }
+
+    /* Install banner */
+    #install-banner {
+      display: none;
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1e40af;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(30,64,175,0.5);
+      z-index: 100;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>⚗️ Profe Ramiro</h1>
+  <p>Juegos interactivos de física</p>
+</header>
+
+<main>
+  <p class="section-title">Juegos disponibles</p>
+  <div class="games-grid">
+
+    <!-- === AGREGAR JUEGOS ACÁ === -->
+    <!-- Copia uno de estos bloques para cada juego nuevo -->
+
+    <a class="game-card" href="https://laboramiro.github.io/juegos-fisica/arquimedes.html" target="_blank">
+      <span class="emoji">🚢</span>
+      <span class="name">Arquímedes</span>
+      <span class="desc">Flotación y empuje</span>
+      <span class="badge badge-new">Nuevo</span>
+    </a>
+
+    <a class="game-card" href="https://laboramiro.github.io/juegos-fisica/calor.html" target="_blank">
+      <span class="emoji">🌡️</span>
+      <span class="name">Calor</span>
+      <span class="desc">Temperatura y energía</span>
+    </a>
+
+    <a class="game-card" href="https://laboramiro.github.io/juegos-fisica/circuitos.html" target="_blank">
+      <span class="emoji">⚡</span>
+      <span class="name">Circuitos</span>
+      <span class="desc">Electricidad básica</span>
+    </a>
+
+    <a class="game-card" href="https://laboramiro.github.io/juegos-fisica/presion.html" target="_blank">
+      <span class="emoji">💧</span>
+      <span class="name">Presión</span>
+      <span class="desc">Fluidos y presión</span>
+    </a>
+
+    <!-- Ejemplo de juego "próximamente":
+    <div class="game-card" style="opacity:0.5; cursor:default;">
+      <span class="emoji">🪐</span>
+      <span class="name">Gravedad</span>
+      <span class="desc">Órbitas y caída libre</span>
+      <span class="badge badge-pronto">Pronto</span>
+    </div>
+    -->
+
+  </div>
+</main>
+
+<button id="install-banner">📲 Instalar app</button>
+
+<footer>
+  proferamiro.com.ar · Física interactiva para el aula
+</footer>
+
+<script>
+  // Registrar service worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {
+      // fallback: intentar con path relativo
+      navigator.serviceWorker.register('sw.js');
+    });
+  }
+
+  // Banner de instalación PWA
+  let deferredPrompt;
+  window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('install-banner').style.display = 'block';
+  });
+
+  document.getElementById('install-banner').addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      document.getElementById('install-banner').style.display = 'none';
+    }
+  });
+
+  window.addEventListener('appinstalled', () => {
+    document.getElementById('install-banner').style.display = 'none';
+  });
+</script>
+
+</body>
+</html>

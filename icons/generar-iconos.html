@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Generar íconos</title>
+<style>
+  body { font-family: sans-serif; padding: 2rem; background: #0f172a; color: #fff; text-align: center; }
+  label { display: inline-block; margin: 1rem auto; padding: 1rem 2rem; background: #1e40af; color: white;
+    border-radius: 8px; font-size: 1.1rem; cursor: pointer; }
+  #links a { display: block; margin: 0.75rem auto; padding: 1rem 2rem; background: #16a34a; color: white;
+    border-radius: 8px; text-decoration: none; font-size: 1.1rem; max-width: 300px; }
+  canvas { display: none; }
+  #preview img { width: 150px; height: 150px; border-radius: 16px; margin: 1rem; border: 2px solid #334155; }
+</style>
+</head>
+<body>
+<h2>Generador de íconos — Profe Ramiro</h2>
+<p style="color:#94a3b8;margin-bottom:1rem;">Seleccioná tu imagen de logo (PNG, JPG, etc.)</p>
+
+<label>
+  📁 Elegir imagen
+  <input type="file" id="file" accept="image/*" style="display:none">
+</label>
+
+<div id="preview"></div>
+<canvas id="c"></canvas>
+<div id="links"></div>
+
+<script>
+document.getElementById('file').addEventListener('change', function() {
+  const file = this.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      const sizes = [192, 512];
+      const div = document.getElementById('links');
+      const prev = document.getElementById('preview');
+      div.innerHTML = '';
+      prev.innerHTML = '<p style="color:#94a3b8">Vista previa:</p>';
+
+      sizes.forEach(size => {
+        const c = document.getElementById('c');
+        c.width = size; c.height = size;
+        const ctx = c.getContext('2d');
+        ctx.clearRect(0,0,size,size);
+        ctx.drawImage(img, 0, 0, size, size);
+
+        // Previsualización solo del 192
+        if (size === 192) {
+          const imgEl = document.createElement('img');
+          imgEl.src = c.toDataURL('image/png');
+          prev.appendChild(imgEl);
+        }
+
+        const a = document.createElement('a');
+        a.href = c.toDataURL('image/png');
+        a.download = `icon-${size}.png`;
+        a.textContent = `⬇️ Descargar icon-${size}.png`;
+        div.appendChild(a);
+      });
+
+      document.querySelector('h2').textContent = '¡Listo! Descargá los dos íconos';
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+});
+</script>
+</body>
+</html>

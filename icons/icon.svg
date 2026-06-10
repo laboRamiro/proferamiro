@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Fondo -->
+  <rect width="512" height="512" rx="80" fill="#1e40af"/>
+  <!-- Símbolo átomo simplificado -->
+  <circle cx="256" cy="256" r="40" fill="#ffffff"/>
+  <!-- Órbita 1 -->
+  <ellipse cx="256" cy="256" rx="130" ry="50" fill="none" stroke="#93c5fd" stroke-width="12"/>
+  <!-- Órbita 2 (rotada 60°) -->
+  <ellipse cx="256" cy="256" rx="130" ry="50" fill="none" stroke="#93c5fd" stroke-width="12"
+    transform="rotate(60 256 256)"/>
+  <!-- Órbita 3 (rotada 120°) -->
+  <ellipse cx="256" cy="256" rx="130" ry="50" fill="none" stroke="#93c5fd" stroke-width="12"
+    transform="rotate(120 256 256)"/>
+  <!-- Electrones -->
+  <circle cx="386" cy="256" r="14" fill="#fbbf24"/>
+  <circle cx="191" cy="144" r="14" fill="#fbbf24"/>
+  <circle cx="191" cy="368" r="14" fill="#fbbf24"/>
+</svg>
